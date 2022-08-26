@@ -8,3 +8,4 @@ services:
       name: data
       mountPath: /data
       sizeGB: 50 # optional
+    startCommand: ./app
