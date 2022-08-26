@@ -1,0 +1,10 @@
+services:
+  # A private Minio instance
+  - type: web
+    name: simple-go-server
+    env: go
+    repo: https://github.com/scottnuma/simple-go-server.git
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 50 # optional
