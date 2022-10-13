@@ -10,10 +10,20 @@ services:
       sizeGB: 50 # optional
     startCommand: ./app
     buildCommand: go build -tags netgo -ldflags '-s -w' -o app
-  - type: redis
-    name: lightning
-    ipAllowList: # required
-      - source: 0.0.0.0/0
-        description: everywhere
-    plan: free # optional (defaults to starter)
-    maxmemoryPolicy: noeviction # optional (defaults to allkeys-lru)
+  # - type: redis
+  #   name: lightning
+  #   ipAllowList: # required
+  #     - source: 0.0.0.0/0
+  #       description: everywhere
+  #   plan: free # optional (defaults to starter)
+  #   maxmemoryPolicy: noeviction # optional (defaults to allkeys-lru)
+databases:
+  - name: elephant
+    plan: free
+    databaseName: mydb # optional (Render may add a suffix)
+    user: adrian # optional
+    ipAllowList: # optional (defaults to allow all)
+      - source: 203.0.113.4/30
+        description: office
+      - source: 198.51.100.1
+        description: home
